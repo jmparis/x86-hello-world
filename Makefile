@@ -1,3 +1,9 @@
+#
+# Check against prerequisites to run the github project
+EXECUTABLES = gcc nasm
+K	:=	$(foreach exec,$(EXECUTABLES),\
+        $(if $(shell which $(exec)),some string,$(error "No $(exec) in PATH")))
+
 TOPTARGETS	=	all run clean
 
 NODIRS		?=
